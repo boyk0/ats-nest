@@ -1,12 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCandidateDto {
-  @ApiProperty()
-  name: string;
+  @ApiProperty({ required: true })
+  readonly name?: string;
 
   @ApiProperty()
-  age: number;
+  readonly age: number;
 
   @ApiProperty()
-  breed: string;
+  readonly breed: string;
 }

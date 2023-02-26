@@ -6,7 +6,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as process from 'process';
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URL), CandidateModule],
+  imports: [
+    MongooseModule.forRoot(`${process.env.MONGO_URL}ats`),
+    CandidateModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

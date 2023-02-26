@@ -12,11 +12,22 @@ export class CandidateService {
   ) {}
 
   async create(createCandidateDto: CreateCandidateDto): Promise<Candidate> {
-    const createdCandidate = new this.candidateModel(createCandidateDto);
-    return createdCandidate.save();
+    return await this.candidateModel.create(createCandidateDto);
   }
 
   async findAll(): Promise<Candidate[]> {
-    return this.candidateModel.find().exec();
+    return await this.candidateModel.find().exec();
+  }
+
+  async findOneById(id: string): Promise<Candidate> {
+    return this.candidateModel.findOne({ _id: id }).exec();
+  }
+
+  async deleteById(id: string) {
+    return await this.candidateModel.findByIdAndRemove({ _id: id }).exec();
+  }
+
+  async updateById(id: string, body: CreateCandidateDto) {
+    return await this.candidateModel.findByIdAndUpdate(id, body);
   }
 }
