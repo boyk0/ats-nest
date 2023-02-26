@@ -20,15 +20,15 @@ services:
       context: ../ats-nest
       dockerfile: $PWD/base.Dockerfile
     ports:
-      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ../ats-nest:/app
       - /app/node_modules
     depends_on:
       - "mongo"
     environment:
-      PORT: 3000
+      PORT: 3001
       HOST: 0.0.0.0
-      MONGO_URL: mongodb://mongo:27017/
+      MONGO_URL: mongodb://mongo:27017/ats
       NODE_TLS_REJECT_UNAUTHORIZED: "0"
     command: ["nodemon", "src/main.ts"]

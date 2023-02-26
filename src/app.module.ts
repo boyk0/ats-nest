@@ -9,7 +9,7 @@ import * as process from 'process';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(`${process.env.MONGO_URL}ats`),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     CandidateModule,
     JobOpeningsModule,
     RecruiterModule,
