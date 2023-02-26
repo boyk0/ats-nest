@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { CandidateModule } from './candidate/candidate.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JobOpeningsModule } from './job-openings/job-openings.module';
+import { RecruiterModule } from './recruiter/recruiter.module';
 import * as process from 'process';
 
 @Module({
@@ -11,6 +12,7 @@ import * as process from 'process';
     MongooseModule.forRoot(`${process.env.MONGO_URL}ats`),
     CandidateModule,
     JobOpeningsModule,
+    RecruiterModule,
   ],
   controllers: [AppController],
   providers: [AppService],
