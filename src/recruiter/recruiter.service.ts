@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Recruiter, RecruiterDocument } from '../schemas/recruiter.schema';
 import { CreateRecruiterDto } from '../dto/create-recruiter.dto';
+import { UpdateRecruiterDto } from '../dto/update-recruiter.dto';
 
 @Injectable()
 export class RecruiterService {
@@ -27,7 +28,7 @@ export class RecruiterService {
     return await this.recruiterModel.findByIdAndRemove({ _id: id }).exec();
   }
 
-  async updateById(id: string, body: CreateRecruiterDto) {
+  async updateById(id: string, body: UpdateRecruiterDto) {
     return await this.recruiterModel.findByIdAndUpdate(id, body);
   }
 }

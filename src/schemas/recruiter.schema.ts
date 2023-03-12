@@ -9,10 +9,16 @@ export class Recruiter {
   name: string;
 
   @Prop()
-  age: number;
+  surname: string;
 
   @Prop()
-  breed: string;
+  email: string;
+
+  @Prop()
+  position: string;
+
+  @Prop()
+  password: string;
 }
 
 export const RecruiterSchema = SchemaFactory.createForClass(Recruiter);

@@ -7,22 +7,22 @@ export class UpdateCandidateDto {
   @IsOptional()
   name?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   surname?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   location?: string;
 
-  @ApiProperty({ default: '+380000000000' })
+  @ApiProperty({ required: false, default: '+380000000000' })
   @IsMobilePhone()
   @IsOptional()
   mobile?: string;
 
-  @ApiProperty({ default: 'ats@ats.com' })
+  @ApiProperty({ required: false, default: 'ats@ats.com' })
   @IsEmail()
   @IsOptional()
   email?: string;
@@ -37,62 +37,62 @@ export class UpdateCandidateDto {
   @IsOptional()
   linkedInLink?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   englishLevel?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   jobOpening?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   seniorityLevel?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   skillSet?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   contactDate?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   dateOfInterview?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   feedbackAfterInterview?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   dateOfTTSent?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   dateOfTTDone?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   dateOfFinalInterview?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   dateOfOfferSent?: string;
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   @IsString()
   @IsOptional()
   candidateStatus?: string;

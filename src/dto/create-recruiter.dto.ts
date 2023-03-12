@@ -1,12 +1,24 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsString } from 'class-validator';
 
 export class CreateRecruiterDto {
   @ApiProperty({ required: true })
-  readonly name?: string;
+  @IsString()
+  name?: string;
 
   @ApiProperty()
-  readonly age: number;
+  @IsString()
+  surname: string;
+
+  @ApiProperty({ default: 'ats@ats.com' })
+  @IsEmail()
+  email: string;
 
   @ApiProperty()
-  readonly breed: string;
+  @IsString()
+  position: string;
+
+  @ApiProperty()
+  @IsString()
+  password: string;
 }
