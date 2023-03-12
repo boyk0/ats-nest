@@ -12,6 +12,11 @@ export class UpdateJobOpeningsDto {
   @IsOptional()
   recruiterName?: string;
 
+  @ApiProperty()
+  @IsString()
+  @IsOptional()
+  teamLead?: string;
+
   @ApiProperty({ required: false })
   @IsString()
   @IsOptional()

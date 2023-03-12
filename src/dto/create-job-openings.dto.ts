@@ -12,6 +12,10 @@ export class CreateJobOpeningsDto {
 
   @ApiProperty()
   @IsString()
+  teamLead: string;
+
+  @ApiProperty()
+  @IsString()
   location: string;
 
   @ApiProperty()

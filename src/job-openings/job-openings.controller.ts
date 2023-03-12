@@ -22,7 +22,7 @@ export class JobOpeningsController {
 
   @Get('/:id')
   async getJobOpening(@Param('id') id: string) {
-    await this.jobOpeningsService.findOneById(id);
+    return await this.jobOpeningsService.findOneById(id);
   }
 
   @Patch('/:id')

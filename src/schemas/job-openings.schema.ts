@@ -12,6 +12,9 @@ export class JobOpenings {
   recruiterName: string;
 
   @Prop()
+  teamLead: string;
+
+  @Prop()
   location: string;
 
   @Prop()
