@@ -1,12 +1,40 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsString } from 'class-validator';
 
 export class CreateJobOpeningsDto {
   @ApiProperty({ required: true })
-  readonly name?: string;
+  @IsString()
+  title?: string;
 
   @ApiProperty()
-  readonly age: number;
+  @IsString()
+  recruiterName: string;
 
   @ApiProperty()
-  readonly breed: string;
+  @IsString()
+  location: string;
+
+  @ApiProperty()
+  @IsString()
+  priorityStatus: string;
+
+  @ApiProperty()
+  @IsString()
+  dateOfOpening: string;
+
+  @ApiProperty()
+  @IsString()
+  type: string;
+
+  @ApiProperty()
+  @IsString()
+  mustHave: string;
+
+  @ApiProperty()
+  @IsString()
+  salaryRange: string;
+
+  @ApiProperty()
+  @IsString()
+  dateOfClosing: string;
 }

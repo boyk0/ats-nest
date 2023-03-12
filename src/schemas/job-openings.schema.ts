@@ -6,13 +6,31 @@ export type JobOpeningsDocument = HydratedDocument<JobOpenings>;
 @Schema()
 export class JobOpenings {
   @Prop()
-  name: string;
+  title?: string;
 
   @Prop()
-  age: number;
+  recruiterName: string;
 
   @Prop()
-  breed: string;
+  location: string;
+
+  @Prop()
+  priorityStatus: string;
+
+  @Prop()
+  dateOfOpening: string;
+
+  @Prop()
+  type: string;
+
+  @Prop()
+  mustHave: string;
+
+  @Prop()
+  salaryRange: string;
+
+  @Prop()
+  dateOfClosing: string;
 }
 
 export const JobOpeningsSchema = SchemaFactory.createForClass(JobOpenings);

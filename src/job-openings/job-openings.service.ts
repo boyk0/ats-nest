@@ -6,6 +6,7 @@ import {
   JobOpeningsDocument,
 } from '../schemas/job-openings.schema';
 import { CreateJobOpeningsDto } from '../dto/create-job-openings.dto';
+import { UpdateJobOpeningsDto } from '../dto/update-job-openings.dto';
 
 @Injectable()
 export class JobOpeningsService {
@@ -32,7 +33,7 @@ export class JobOpeningsService {
     return await this.jobOpeningsModel.findByIdAndRemove({ _id: id }).exec();
   }
 
-  async updateById(id: string, body: CreateJobOpeningsDto) {
+  async updateById(id: string, body: UpdateJobOpeningsDto) {
     return await this.jobOpeningsModel.findByIdAndUpdate(id, body);
   }
 }
