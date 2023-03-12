@@ -7,12 +7,42 @@ export type CandidateDocument = HydratedDocument<Candidate>;
 export class Candidate {
   @Prop()
   name: string;
-
   @Prop()
-  age: number;
-
+  surname: string;
   @Prop()
-  breed: string;
+  location: string;
+  @Prop()
+  mobile?: string;
+  @Prop()
+  email: string;
+  @Prop()
+  telegramNick?: string;
+  @Prop()
+  linkedInLink?: string;
+  @Prop()
+  englishLevel: string;
+  @Prop()
+  jobOpening?: string;
+  @Prop()
+  seniorityLevel: string;
+  @Prop()
+  skillSet: string;
+  @Prop()
+  contactDate: string;
+  @Prop()
+  dateOfInterview?: string;
+  @Prop()
+  feedbackAfterInterview?: string;
+  @Prop()
+  dateOfTTSent?: string;
+  @Prop()
+  dateOfTTDone?: string;
+  @Prop()
+  dateOfFinalInterview?: string;
+  @Prop()
+  dateOfOfferSent?: string;
+  @Prop()
+  candidateStatus: string;
 }
 
 export const CandidateSchema = SchemaFactory.createForClass(Candidate);

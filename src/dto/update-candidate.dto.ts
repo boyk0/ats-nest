@@ -1,26 +1,31 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsMobilePhone, IsOptional, IsString } from 'class-validator';
 
-export class CreateCandidateDto {
-  @ApiProperty({ required: true })
+export class UpdateCandidateDto {
+  @ApiProperty({ required: false })
   @IsString()
+  @IsOptional()
   name?: string;
 
   @ApiProperty()
   @IsString()
-  surname: string;
+  @IsOptional()
+  surname?: string;
 
   @ApiProperty()
   @IsString()
-  location: string;
+  @IsOptional()
+  location?: string;
 
   @ApiProperty({ default: '+380000000000' })
   @IsMobilePhone()
+  @IsOptional()
   mobile?: string;
 
   @ApiProperty({ default: 'ats@ats.com' })
   @IsEmail()
-  email: string;
+  @IsOptional()
+  email?: string;
 
   @ApiProperty({ required: false, default: '' })
   @IsString()
@@ -34,7 +39,8 @@ export class CreateCandidateDto {
 
   @ApiProperty()
   @IsString()
-  englishLevel: string;
+  @IsOptional()
+  englishLevel?: string;
 
   @ApiProperty()
   @IsString()
@@ -43,15 +49,18 @@ export class CreateCandidateDto {
 
   @ApiProperty()
   @IsString()
-  seniorityLevel: string;
+  @IsOptional()
+  seniorityLevel?: string;
 
   @ApiProperty()
   @IsString()
-  skillSet: string;
+  @IsOptional()
+  skillSet?: string;
 
   @ApiProperty()
   @IsString()
-  contactDate: string;
+  @IsOptional()
+  contactDate?: string;
 
   @ApiProperty()
   @IsString()
@@ -85,5 +94,6 @@ export class CreateCandidateDto {
 
   @ApiProperty()
   @IsString()
-  candidateStatus: string;
+  @IsOptional()
+  candidateStatus?: string;
 }

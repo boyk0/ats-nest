@@ -3,6 +3,7 @@ import { Candidate, CandidateDocument } from '../schemas/candidate.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateCandidateDto } from '../dto/create-candidate.dto';
+import { UpdateCandidateDto } from '../dto/update-candidate.dto';
 
 @Injectable()
 export class CandidateService {
@@ -27,7 +28,7 @@ export class CandidateService {
     return await this.candidateModel.findByIdAndRemove({ _id: id }).exec();
   }
 
-  async updateById(id: string, body: CreateCandidateDto) {
+  async updateById(id: string, body: UpdateCandidateDto) {
     return await this.candidateModel.findByIdAndUpdate(id, body);
   }
 }

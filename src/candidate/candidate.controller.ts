@@ -1,7 +1,10 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CandidateService } from './candidate.service';
 import { CreateCandidateDto } from '../dto/create-candidate.dto';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { UpdateCandidateDto } from '../dto/update-candidate.dto';
 
+@ApiTags('Candidate')
 @Controller('candidate')
 export class CandidateController {
   constructor(private readonly candidateService: CandidateService) {}
@@ -11,8 +14,9 @@ export class CandidateController {
   }
 
   @Post('/')
+  @ApiBody({ type: CreateCandidateDto })
   async create(@Body() createCandidateDto: CreateCandidateDto) {
-    await this.candidateService.create(createCandidateDto);
+    return await this.candidateService.create(createCandidateDto);
   }
 
   @Get('/:id')
@@ -23,8 +27,8 @@ export class CandidateController {
   @Patch('/:id')
   async updateCandidateById(
     @Param('id') id: string,
-    @Body() updateCandidateDto: CreateCandidateDto,
+    @Body() updateCandidateDto: UpdateCandidateDto,
   ) {
-    return await this.candidateService.updateById(id, updateCandidateDto);
+    await this.candidateService.updateById(id, updateCandidateDto);
   }
 }
