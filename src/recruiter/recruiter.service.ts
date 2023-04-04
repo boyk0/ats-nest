@@ -21,7 +21,7 @@ export class RecruiterService {
   }
 
   async findOneById(id: string): Promise<Recruiter> {
-    return this.recruiterModel.findOne({ _id: id }).exec();
+    return await this.recruiterModel.findById(id).exec();
   }
 
   async deleteById(id: string) {

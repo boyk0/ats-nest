@@ -9,25 +9,38 @@ import { UpdateRecruiterDto } from '../dto/update-recruiter.dto';
 export class RecruiterController {
   constructor(private readonly recruiterService: RecruiterService) {}
 
+  @Get('/me')
+  async getMyAccount() {
+    return await this.getRecruiterById('642bfcc2e3d630bcdd1110c3');
+    // return await this.recruiterService
+    //   .findOneById('642bfcc2e3d630bcdd1110c3')
+    //   .then((data) => ({ ...data, password: undefined }));
+
+    // return {
+    //   ...profile,
+    //   password: undefined,
+    // };
+  }
+
   @Get('/all')
-  async getJobOpenings() {
+  async getRecruiters() {
     return await this.recruiterService.findAll();
   }
 
   @Post('/')
   @ApiBody({ type: CreateRecruiterDto })
-  async createJobOpenings(@Body() createRecruiterDto: CreateRecruiterDto) {
+  async createRecruiter(@Body() createRecruiterDto: CreateRecruiterDto) {
     await this.recruiterService.create(createRecruiterDto);
   }
 
   @Get('/:id')
-  async getJobOpening(@Param('id') id: string) {
-    await this.recruiterService.findOneById(id);
+  async getRecruiterById(@Param('id') id: string) {
+    return await this.recruiterService.findOneById(id);
   }
 
   @Patch('/:id')
   @ApiBody({ type: UpdateRecruiterDto })
-  async updateJobOpeningsById(
+  async updateRecruiterById(
     @Param('id') id: string,
     @Body() updateRecruiterDto: UpdateRecruiterDto,
   ) {
