@@ -10,24 +10,24 @@ export class RecruiterController {
   constructor(private readonly recruiterService: RecruiterService) {}
 
   @Get('/all')
-  async getJobOpenings() {
+  async getRecruiters() {
     return await this.recruiterService.findAll();
   }
 
   @Post('/')
   @ApiBody({ type: CreateRecruiterDto })
-  async createJobOpenings(@Body() createRecruiterDto: CreateRecruiterDto) {
+  async createRecruiter(@Body() createRecruiterDto: CreateRecruiterDto) {
     await this.recruiterService.create(createRecruiterDto);
   }
 
   @Get('/:id')
-  async getJobOpening(@Param('id') id: string) {
-    await this.recruiterService.findOneById(id);
+  async getRecruiterById(@Param('id') id: string) {
+    return await this.recruiterService.findOneById(id);
   }
 
   @Patch('/:id')
   @ApiBody({ type: UpdateRecruiterDto })
-  async updateJobOpeningsById(
+  async updateRecruiterById(
     @Param('id') id: string,
     @Body() updateRecruiterDto: UpdateRecruiterDto,
   ) {
