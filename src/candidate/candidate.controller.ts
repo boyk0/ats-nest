@@ -3,11 +3,13 @@ import { CandidateService } from './candidate.service';
 import { CreateCandidateDto } from '../dto/create-candidate.dto';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { UpdateCandidateDto } from '../dto/update-candidate.dto';
+import { Public } from '../auth/decorators/public.decorator';
 
 @ApiTags('Candidate')
 @Controller('candidate')
 export class CandidateController {
   constructor(private readonly candidateService: CandidateService) {}
+  // @Public()
   @Get('/all')
   async getCandidates() {
     return await this.candidateService.findAll();

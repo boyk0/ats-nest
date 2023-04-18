@@ -9,19 +9,6 @@ import { UpdateRecruiterDto } from '../dto/update-recruiter.dto';
 export class RecruiterController {
   constructor(private readonly recruiterService: RecruiterService) {}
 
-  @Get('/me')
-  async getMyAccount() {
-    return await this.getRecruiterById('642bfcc2e3d630bcdd1110c3');
-    // return await this.recruiterService
-    //   .findOneById('642bfcc2e3d630bcdd1110c3')
-    //   .then((data) => ({ ...data, password: undefined }));
-
-    // return {
-    //   ...profile,
-    //   password: undefined,
-    // };
-  }
-
   @Get('/all')
   async getRecruiters() {
     return await this.recruiterService.findAll();
