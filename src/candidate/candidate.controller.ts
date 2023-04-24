@@ -15,6 +15,11 @@ export class CandidateController {
     return await this.candidateService.findAll();
   }
 
+  @Get('/analytics')
+  async getAnalytics() {
+    return await this.candidateService.findAll();
+  }
+
   @Post('/')
   @ApiBody({ type: CreateCandidateDto })
   async create(@Body() createCandidateDto: CreateCandidateDto) {
