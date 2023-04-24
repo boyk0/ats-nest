@@ -17,12 +17,22 @@ export class JobOpeningsService {
 
   async create(
     createJobOpeningDto: CreateJobOpeningsDto,
+    recruiterId: string,
   ): Promise<JobOpenings> {
-    return await this.jobOpeningsModel.create(createJobOpeningDto);
+    return await this.jobOpeningsModel.create({
+      ...createJobOpeningDto,
+      recruiterId,
+    });
   }
 
   async findAll(): Promise<JobOpenings[]> {
     return await this.jobOpeningsModel.find().exec();
+  }
+
+  async getJobOpeningsByRecruiterId(
+    recruiterId: string,
+  ): Promise<JobOpenings[]> {
+    return await this.jobOpeningsModel.find({ recruiterId }).exec();
   }
 
   async findOneById(id: string): Promise<JobOpenings> {

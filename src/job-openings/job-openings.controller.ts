@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Request,
+} from '@nestjs/common';
 import { JobOpeningsService } from './job-openings.service';
 import { CreateJobOpeningsDto } from '../dto/create-job-openings.dto';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
@@ -10,14 +18,28 @@ export class JobOpeningsController {
   constructor(private readonly jobOpeningsService: JobOpeningsService) {}
 
   @Get('/all')
-  async getJobOpenings() {
+  async getJobOpenings(@Request() req) {
+    const {
+      user: { _id: id },
+    } = req;
+    return await this.jobOpeningsService.getJobOpeningsByRecruiterId(id);
+  }
+
+  @Get('/analytics')
+  async getAnalytics() {
     return await this.jobOpeningsService.findAll();
   }
 
   @Post('/')
   @ApiBody({ type: CreateJobOpeningsDto })
-  async createJobOpenings(@Body() createJobOpeningsDto: CreateJobOpeningsDto) {
-    await this.jobOpeningsService.create(createJobOpeningsDto);
+  async createJobOpenings(
+    @Body() createJobOpeningsDto: CreateJobOpeningsDto,
+    @Request() req,
+  ) {
+    const {
+      user: { _id: id },
+    } = req;
+    await this.jobOpeningsService.create(createJobOpeningsDto, id);
   }
 
   @Get('/:id')

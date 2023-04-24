@@ -34,6 +34,9 @@ export class JobOpenings {
 
   @Prop()
   dateOfClosing: string;
+
+  @Prop()
+  recruiterId: string;
 }
 
 export const JobOpeningsSchema = SchemaFactory.createForClass(JobOpenings);
