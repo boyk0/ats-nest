@@ -31,4 +31,10 @@ export class CandidateService {
   async updateById(id: string, body: UpdateCandidateDto) {
     return await this.candidateModel.findByIdAndUpdate(id, body);
   }
+
+  async findByJobOpeningName(jobOpeningName: string) {
+    return await this.candidateModel.find({
+      jobOpening: { $regex: jobOpeningName },
+    });
+  }
 }
