@@ -41,4 +41,8 @@ export class CreateJobOpeningsDto {
   @ApiProperty()
   @IsString()
   dateOfClosing: string;
+
+  @ApiProperty()
+  @IsString()
+  recruiterId: string;
 }

@@ -18,11 +18,8 @@ export class JobOpeningsController {
   constructor(private readonly jobOpeningsService: JobOpeningsService) {}
 
   @Get('/all')
-  async getJobOpenings(@Request() req) {
-    const {
-      user: { _id: id },
-    } = req;
-    return await this.jobOpeningsService.getJobOpeningsByRecruiterId(id);
+  async getJobOpenings() {
+    return await this.jobOpeningsService.findAll();
   }
 
   @Get('/analytics')
@@ -32,14 +29,8 @@ export class JobOpeningsController {
 
   @Post('/')
   @ApiBody({ type: CreateJobOpeningsDto })
-  async createJobOpenings(
-    @Body() createJobOpeningsDto: CreateJobOpeningsDto,
-    @Request() req,
-  ) {
-    const {
-      user: { _id: id },
-    } = req;
-    await this.jobOpeningsService.create(createJobOpeningsDto, id);
+  async createJobOpenings(@Body() createJobOpeningsDto: CreateJobOpeningsDto) {
+    await this.jobOpeningsService.create(createJobOpeningsDto);
   }
 
   @Get('/:id')
