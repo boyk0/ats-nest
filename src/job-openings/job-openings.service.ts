@@ -17,12 +17,8 @@ export class JobOpeningsService {
 
   async create(
     createJobOpeningDto: CreateJobOpeningsDto,
-    recruiterId: string,
   ): Promise<JobOpenings> {
-    return await this.jobOpeningsModel.create({
-      ...createJobOpeningDto,
-      recruiterId,
-    });
+    return await this.jobOpeningsModel.create(createJobOpeningDto);
   }
 
   async findAll(): Promise<JobOpenings[]> {

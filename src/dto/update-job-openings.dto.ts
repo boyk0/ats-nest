@@ -51,4 +51,8 @@ export class UpdateJobOpeningsDto {
   @IsString()
   @IsOptional()
   dateOfClosing?: string;
+
+  @ApiProperty({ required: false })
+  @IsString()
+  recruiterId?: string;
 }
