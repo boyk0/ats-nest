@@ -31,4 +31,6 @@ services:
       HOST: 0.0.0.0
       MONGO_URL: mongodb://mongo:27017/ats
       NODE_TLS_REJECT_UNAUTHORIZED: "0"
+      ZOOM_ACCOUNT_ID: "${ZOOM_ACCOUNT_ID}"
+      ZOOM_ACCOUNT_BASIC_AUTHORIZATION: "${ZOOM_ACCOUNT_BASIC_AUTHORIZATION}"
     command: ["nodemon", "src/main.ts"]
