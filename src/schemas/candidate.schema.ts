@@ -43,6 +43,8 @@ export class Candidate {
   dateOfOfferSent?: string;
   @Prop()
   candidateStatus: string;
+  @Prop()
+  jobOpeningId: string;
 }
 
 export const CandidateSchema = SchemaFactory.createForClass(Candidate);
