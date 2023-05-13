@@ -86,4 +86,8 @@ export class CreateCandidateDto {
   @ApiProperty()
   @IsString()
   candidateStatus: string;
+
+  @ApiProperty()
+  @IsString()
+  jobOpeningId: string;
 }

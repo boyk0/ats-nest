@@ -96,4 +96,9 @@ export class UpdateCandidateDto {
   @IsString()
   @IsOptional()
   candidateStatus?: string;
+
+  @ApiProperty({ required: false })
+  @IsString()
+  @IsOptional()
+  jobOpeningId?: string;
 }
